@@ -587,6 +587,38 @@ rr
 
     For information, see the [Galera Cluster documentation](https://galeracluster.com/library/documentation/galera-parameters.html#gcomm-thread-prio)
 
+### `gcs.fc_auto_evict_threshold`
+
+| Option | Description |
+|---|---|
+| Command Line: | Yes |
+| Config file : | Yes |
+| Scope: | Global |
+| Dynamic: | No |
+| Default value: | 0.75 |
+
+Implemented in Percona XtraDB Cluster 8.0.33-25.
+
+Defines the threshold that much be reached or crossed before a node is evicted from the cluster. This variable is a ratio of the [`gcs.fc_auto_evict_window`](#gcs.fc_auto_evict_window) variable. The default value is `.075` but the value can be set to any value between 0.0 and 1.0. 
+
+### `gcs.fc_auto_evict_window`
+
+| Option | Description |
+|---|---|
+| Command Line: | Yes |
+| Config file : | Yes |
+| Scope: | Global |
+| Dynamic: | No |
+| Default value: | 0 |
+
+Implemented in Percona XtraDB Cluster 8.0.33-25.
+
+Defines the number of seconds a node can be allowed in flow control during a window. This value is used by [`gcs.fc_auto_evict_threshold`](#gcs.fc_auto_evict_threshold).
+
+The default value is 0, which means that the feature is disabled.
+
+The maximum value is `DBL_MAX`.
+
 ### `gcs.fc_debug`
 
 | Option         | Description        |
